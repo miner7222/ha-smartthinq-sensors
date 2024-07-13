@@ -74,6 +74,30 @@ class AirPurifierFeatures(StrEnum):
     PM25 = "pm25"
 
 
+class AirPurifierFanFeatures(StrEnum):
+    """Features for LG Air Purifier Fan devices."""
+
+    FILTER_BOTTOM_LIFE = "filter_bottom_life"
+    FILTER_BOTTOM_MAX = "filter_bottom_max"
+    FILTER_BOTTOM_USE = "filter_bottom_use"
+    FILTER_DUST_LIFE = "filter_dust_life"
+    FILTER_DUST_MAX = "filter_dust_max"
+    FILTER_DUST_USE = "filter_dust_use"
+    FILTER_MAIN_LIFE = "filter_main_life"
+    FILTER_MAIN_MAX = "filter_main_max"
+    FILTER_MAIN_USE = "filter_main_use"
+    FILTER_MID_LIFE = "filter_mid_life"
+    FILTER_MID_MAX = "filter_mid_max"
+    FILTER_MID_USE = "filter_mid_use"
+    FILTER_TOP_LIFE = "filter_top_life"
+    FILTER_TOP_MAX = "filter_top_max"
+    FILTER_TOP_USE = "filter_top_use"
+    HUMIDITY = "humidity"
+    PM1 = "pm1"
+    PM10 = "pm10"
+    PM25 = "pm25"
+
+
 class DehumidifierFeatures(StrEnum):
     """Features for LG Dehumidifier devices."""
 

@@ -59,6 +59,7 @@ from .wideq import (
     WM_DEVICE_TYPES,
     AirConditionerFeatures,
     AirPurifierFeatures,
+    AirPurifierFanFeatures,
     DehumidifierFeatures,
     DeviceType,
     MicroWaveFeatures,
@@ -475,6 +476,91 @@ AIR_PURIFIER_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         feature_attributes={
             "use_time": AirPurifierFeatures.FILTER_TOP_USE,
             "max_time": AirPurifierFeatures.FILTER_TOP_MAX,
+        },
+    ),
+)
+AIR_PURIFIER_FAN_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
+    ThinQSensorEntityDescription(
+        key=AirPurifierFanFeatures.HUMIDITY,
+        name="Current Humidity",
+        state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.HUMIDITY,
+        native_unit_of_measurement=PERCENTAGE,
+    ),
+    ThinQSensorEntityDescription(
+        key=AirPurifierFanFeatures.PM1,
+        name="PM1",
+        state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.PM1,
+        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+    ),
+    ThinQSensorEntityDescription(
+        key=AirPurifierFanFeatures.PM10,
+        name="PM10",
+        state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.PM10,
+        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+    ),
+    ThinQSensorEntityDescription(
+        key=AirPurifierFanFeatures.PM25,
+        name="PM2.5",
+        state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.PM25,
+        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+    ),
+    ThinQSensorEntityDescription(
+        key=AirPurifierFanFeatures.FILTER_MAIN_LIFE,
+        name="Filter Remaining Life (Main)",
+        icon="mdi:air-filter",
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement=PERCENTAGE,
+        feature_attributes={
+            "use_time": AirPurifierFanFeatures.FILTER_MAIN_USE,
+            "max_time": AirPurifierFanFeatures.FILTER_MAIN_MAX,
+        },
+    ),
+    ThinQSensorEntityDescription(
+        key=AirPurifierFanFeatures.FILTER_BOTTOM_LIFE,
+        name="Filter Remaining Life (Bottom)",
+        icon="mdi:air-filter",
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement=PERCENTAGE,
+        feature_attributes={
+            "use_time": AirPurifierFanFeatures.FILTER_BOTTOM_USE,
+            "max_time": AirPurifierFanFeatures.FILTER_BOTTOM_MAX,
+        },
+    ),
+    ThinQSensorEntityDescription(
+        key=AirPurifierFanFeatures.FILTER_DUST_LIFE,
+        name="Filter Remaining Life (Dust)",
+        icon="mdi:air-filter",
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement=PERCENTAGE,
+        feature_attributes={
+            "use_time": AirPurifierFanFeatures.FILTER_DUST_USE,
+            "max_time": AirPurifierFanFeatures.FILTER_DUST_MAX,
+        },
+    ),
+    ThinQSensorEntityDescription(
+        key=AirPurifierFanFeatures.FILTER_MID_LIFE,
+        name="Filter Remaining Life (Middle)",
+        icon="mdi:air-filter",
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement=PERCENTAGE,
+        feature_attributes={
+            "use_time": AirPurifierFanFeatures.FILTER_MID_USE,
+            "max_time": AirPurifierFanFeatures.FILTER_MID_MAX,
+        },
+    ),
+    ThinQSensorEntityDescription(
+        key=AirPurifierFanFeatures.FILTER_TOP_LIFE,
+        name="Filter Remaining Life (Top)",
+        icon="mdi:air-filter",
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement=PERCENTAGE,
+        feature_attributes={
+            "use_time": AirPurifierFanFeatures.FILTER_TOP_USE,
+            "max_time": AirPurifierFanFeatures.FILTER_TOP_MAX,
         },
     ),
 )

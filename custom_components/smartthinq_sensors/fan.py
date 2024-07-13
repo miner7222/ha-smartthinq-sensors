@@ -63,6 +63,16 @@ AIRPURIFIER_WRAPPER = LGEFanWrapperDescription(
     turn_off_fn=lambda x: x.device.power(False),
     turn_on_fn=lambda x: x.device.power(True),
 )
+AIRPURIFIERFAN_WRAPPER = LGEFanWrapperDescription(
+    fanspeed_fn=lambda x: x.state.fan_speed,
+    fanspeeds_fn=lambda x: x.device.fan_speeds,
+    set_fanspeed_fn=lambda x, option: x.device.set_fan_speed(option),
+    fanpreset_fn=lambda x: x.state.fan_preset,
+    fanpresets_fn=lambda x: x.device.fan_presets,
+    set_fanpreset_fn=lambda x, option: x.device.set_fan_preset(option),
+    turn_off_fn=lambda x: x.device.power(False),
+    turn_on_fn=lambda x: x.device.power(True),
+)
 HOOD_WRAPPER = LGEFanWrapperDescription(
     fanspeed_fn=None,
     fanspeeds_fn=lambda x: x.device.vent_speeds,
@@ -102,6 +112,14 @@ AIRPURIFIER_DEVICE: tuple[ThinQFanEntityDescription, ...] = (
         wrapper_description=AIRPURIFIER_WRAPPER,
     ),
 )
+AIRPURIFIERFAN_DEVICE: tuple[ThinQFanEntityDescription, ...] = (
+    ThinQFanEntityDescription(
+        key=DEFAULT_KEY,
+        name=None,
+        icon="mdi:air-purifier",
+        wrapper_description=AIRPURIFIERFAN_WRAPPER,
+    ),
+)
 HOOD_DEVICE: tuple[ThinQFanEntityDescription, ...] = (
     ThinQFanEntityDescription(
         key=HoodFeatures.VENT_SPEED,
@@ -120,6 +138,7 @@ MICROWAVE_DEVICE: tuple[ThinQFanEntityDescription, ...] = (
 FAN_ENTITIES = {
     DeviceType.FAN: FAN_DEVICE,
     DeviceType.AIR_PURIFIER: AIRPURIFIER_DEVICE,
+    DeviceType.AIR_PURIFIER_FAN: AIRPURIFIERFAN_DEVICE,
     DeviceType.HOOD: HOOD_DEVICE,
     DeviceType.MICROWAVE: MICROWAVE_DEVICE,
 }

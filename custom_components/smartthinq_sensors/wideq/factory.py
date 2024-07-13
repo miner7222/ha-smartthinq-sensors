@@ -15,6 +15,7 @@ from .device_info import (
 )
 from .devices.ac import AirConditionerDevice
 from .devices.airpurifier import AirPurifierDevice
+from .devices.airpurifierfan import AirPurifierFanDevice
 from .devices.dehumidifier import DeHumidifierDevice
 from .devices.dishwasher import DishWasherDevice
 from .devices.fan import FanDevice
@@ -52,6 +53,8 @@ def get_lge_device(
         return [AirConditionerDevice(client, device_info, temp_unit)]
     if device_type == DeviceType.AIR_PURIFIER:
         return [AirPurifierDevice(client, device_info)]
+    if device_type == DeviceType.AIR_PURIFIER_FAN:
+        return [AirPurifierFanDevice(client, device_info)]
     if device_type == DeviceType.DEHUMIDIFIER:
         return [DeHumidifierDevice(client, device_info)]
     if device_type == DeviceType.DISHWASHER:
